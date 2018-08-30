@@ -124,7 +124,7 @@ shinyUI(
 
   # output for table
   fluidRow(
-    dataTableOutput("table")
+    column(12,dataTableOutput("table"))
   )
 )
 ),
