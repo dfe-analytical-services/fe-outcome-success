@@ -112,9 +112,11 @@ shinyUI(
                        c("","All","Benefit Learner"))
     ),
     column(3,
-           br("Key:"),
+           style='border: 2px solid black',
+           br("Key: Learner Type"),
            br("BL - Benefit Learners"),
-           br("All - All learners excl. benefit learners")
+           br("All - All learners excl. benefit learners"),
+           br()
            ),
     column(1,
            downloadButton("downloadData", "Download")
