@@ -4,7 +4,7 @@ source("R/codefile.R")
 shinyServer(function(input,output,session){
   # input$submit is the 'Go' button so when it is clicked, the tab changes
   observeEvent(input$submit,{
-    updateTabsetPanel(session=session,inputId="tabs",selected="Interactive Tables")
+    updateTabsetPanel(session=session,inputId="navbar",selected="Interactive Tables")
   })
   # plot
   output$plot<-renderPlot({
