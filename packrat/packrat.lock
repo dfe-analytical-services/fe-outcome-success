@@ -43,17 +43,17 @@ Hash: fb672e20eb6f3010a3639f855d8ef6de
 
 Package: RSelenium
 Source: github
-Version: 1.7.4
-Hash: ccb7fd052345143f3a99473c82a74c73
+Version: 1.7.4.9000
+Hash: 6a927b438bd198289c016ac045458cca
 Requires: XML, binman, caTools, httr, openssl, wdman
 GithubRepo: RSelenium
 GithubUsername: ropensci
 GithubRef: master
-GithubSha1: ce2de7a64853a212694c001ae4c5578b83adf748
+GithubSha1: 7509b81846b5d346311f3dbded88afd9351998d1
 RemoteHost: https://api.github.com
 RemoteRepo: RSelenium
 RemoteUsername: ropensci
-RemoteSha: ce2de7a64853a212694c001ae4c5578b83adf748
+RemoteSha: 7509b81846b5d346311f3dbded88afd9351998d1
 
 Package: Rcpp
 Source: CRAN
@@ -281,6 +281,11 @@ Version: 1.8.4
 Hash: 05d65ee369a267f0d0c56604000c69b5
 Requires: Rcpp
 
+Package: praise
+Source: CRAN
+Version: 1.0.0
+Hash: 77da8f1df873a4b91e5c4a68fe2fb1b6
+
 Package: promises
 Source: CRAN
 Version: 1.0.1
@@ -359,6 +364,12 @@ Package: subprocess
 Source: CRAN
 Version: 0.8.3
 Hash: 6fa2bf398c125cc05fd8f47a3e2d556c
+
+Package: testthat
+Source: CRAN
+Version: 2.0.0
+Hash: 537114b476376c5773bf3c557f5bbd19
+Requires: R6, cli, crayon, digest, magrittr, praise, rlang, withr
 
 Package: tibble
 Source: CRAN
