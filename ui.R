@@ -2,6 +2,7 @@ source("R/codefile.R")
 # user interface
 shinyUI(
   fluidPage(
+    useShinyjs(),
     tags$head(tags$style(
       HTML('
            #sidebar {
@@ -13,7 +14,7 @@ shinyUI(
   navbarPage(
     "Further Education Outcome Based Success Measures (Pilot)",
     theme = "shiny.css",
-    id = "navbar",
+    id = "navbar", 
   # first tab            
   tabPanel("Summary Page",
            sidebarLayout(
