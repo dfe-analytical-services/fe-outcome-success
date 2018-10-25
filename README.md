@@ -37,7 +37,7 @@ To run the project on your machine you need to do the following:
 
 This folder contains the data for the tool. 
 - **learner_cat_levels.csv** - list of the learner categories
-- **obsm.csv** - detailes provider outcomes by learner categories
+- **obsm.csv** - detailed provider outcomes by learner categories
 - **summary.csv** - summarised provider outcomes by quintiles
 - **thresholds.csv** - thresholds for quintiles
 
