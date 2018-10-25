@@ -40,3 +40,7 @@ This folder contains the data for the tool.
 - **obsm.csv** - detailes provider outcomes by learner categories
 - **summary.csv** - summarised provider outcomes by quintiles
 - **thresholds.csv** - thresholds for quintiles
+
+## R folder
+
+This folder contains the codefile R script which reads in the data from the Data folder
