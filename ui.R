@@ -20,6 +20,7 @@ shinyUI(
            sidebarPanel(id = "sidebar",
            # start of description
              # title, h3 defines size
+              wellPanel(style = "background: ",
              h2("Further Education Outcome Based Success Measures - Interactive Tool (Pilot)"),
              h3("Summary"),
              p("This tool is aimed at enabling users to further understand provider outcomes, split by learner categories."), 
@@ -63,7 +64,7 @@ shinyUI(
              h3("Contact"),
              p(),
              p("Email us at ", a("FE.OUTCOMESDATA@education.gov.uk", href="mailto:FE.OUTCOMESDATA@education.gov.uk", target="_blank"), 
-                " or write to us at FE Outcomes Data, Department for Education, Sanctuary Buildings, Great Smith Street, London SW1P 3BT")
+                " or write to us at FE Outcomes Data, Department for Education, Sanctuary Buildings, Great Smith Street, London SW1P 3BT"))
              # end of description
              
            , width = 7),
