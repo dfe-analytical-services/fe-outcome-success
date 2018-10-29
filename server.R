@@ -12,7 +12,7 @@ shinyServer(function(input,output,session){
       # filter for provider
       filter(Provider==input$provider1) %>%
       # select relevant columns
-      select(c(1,5:9,11:15)) %>% 
+      select(c(1, 4:8, 10:14, 16:20)) %>% 
       # melt puts data into format we want
       melt("Provider")
     # name of title, changes as provider changes
@@ -20,13 +20,14 @@ shinyServer(function(input,output,session){
     # first 5 rows are 13/14, second 5 are 14/15
     plotdata[1:5,1]<-"13/14"
     plotdata[6:10,1]<-"14/15"
+    plotdata[11:15,1]<-"15/16"
     # removes 13/14 and 14/15 from values to make plot nicer
     plotdata$variable<-substr(plotdata$variable,1,str_length(plotdata$variable)-6)
     # relevel factor levels
     plotdata$variable<-factor(plotdata$variable,
                               levels=rev(c("Bottom Quintile","Second Quintile","Third Quintile","Fourth Quintile","Top Quintile")))
     # ggplot of data
-    ggplot(plotdata,aes(as.character(Provider),as.numeric(value)*100,fill=variable)) + 
+    ggplot(plotdata,aes(as.character(Provider),as.numeric(value),fill=variable)) + 
       geom_bar(stat="identity") + 
       coord_flip() + 
       labs(y="Percentage",x="Academic Year",title=title_lab) + 
@@ -36,17 +37,24 @@ shinyServer(function(input,output,session){
   output$con <- renderUI({
     conditionalPanel("input.provider1 != ''",
                      textOutput("text"),
-                     textOutput("text1")
+                     textOutput("text1"),
+                     textOutput("text2")
     )
   })
   # text showing completions
   output$text <- renderText({
     text<-summ %>% 
       filter(Provider==input$provider1) %>%
+      select(`Completions 15/16`)
+    paste("Completions 15/16:",text)
+  })
+  output$text1 <- renderText({
+    text<-summ %>% 
+      filter(Provider==input$provider1) %>%
       select(`Completions 14/15`)
     paste("Completions 14/15:",text)
   })
-  output$text1 <- renderText({
+  output$text2 <- renderText({
     text<-summ %>% 
       filter(Provider==input$provider1) %>%
       select(`Completions 13/14`)
@@ -71,6 +79,9 @@ shinyServer(function(input,output,session){
       }
       if (input$year == "14/15") {
         data <- select(data,c(1:2,names(data)[grepl("14/15",names(data))]))
+      }
+      if (input$year == "15/16") {
+        data <- select(data,c(1:2,names(data)[grepl("15/16",names(data))]))
       }
     }
     if (input$learner_type != "") {
