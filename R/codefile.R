@@ -30,7 +30,7 @@ thresholds<-read.csv("Data/thresholds.csv",
 # relevelling factor levels of learner category
 obsm$Provider<-paste(obsm$UKPRN,"-",obsm$`Provider Name`)
 obsm<-obsm %>% select(c(22,3:21))
-obsm$`Learner Category`<-factor(obsm$`Learner Category`,levels=levs[,1])
+obsm %>% arrange(factor(`Learner Category`,levels=levs[,1]))
 summ$Provider<-paste(summ$UKPRN,"-",summ$`Provider Name`)
 summ<-summ %>% select(c(22,3:21))
 
