@@ -1,4 +1,5 @@
 source("R/codefile.R")
+
 # user interface
 shinyUI(
   fluidPage(
@@ -105,7 +106,7 @@ shinyUI(
            selectInput("year",
                        "Academic Year",
                        c("All",
-                         "14/15","13/14"))
+                         "15/16", "14/15","13/14"))
     ),
     column(2,
            selectInput("learner_type",
