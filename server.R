@@ -2,10 +2,22 @@ source("R/codefile.R")
 
 # server
 shinyServer(function(input,output,session){
+  # Hide tabPanels
+  hideTab("navbar", target = "Interactive Tables")
+  hideTab("navbar", target = "Thresholds")
+  # When a school is selected, the 'see more data' button is enabled
+  observe({ 
+    shinyjs::toggleState("submit", 
+      !is.null(input$provider1) && input$provider1 != "")  })
   # input$submit is the 'Go' button so when it is clicked, the tab changes
   observeEvent(input$submit,{
     updateTabsetPanel(session=session,inputId="navbar",selected="Interactive Tables")
-  })
+  }) 
+  #Reveal the futher tabs when the user clicks through to see the data in more detail
+  observeEvent(input$submit,{
+    showTab("navbar", target = "Interactive Tables")
+    showTab("navbar", target = "Thresholds")
+  }) 
   # plot
   output$plot<-renderPlot({
     plotdata<-summ %>%
