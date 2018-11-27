@@ -42,7 +42,7 @@ shinyServer(function(input,output,session){
     ggplot(plotdata,aes(as.character(Provider),as.numeric(value),fill=variable)) + 
       geom_bar(stat="identity") + 
       coord_flip() + 
-      labs(y="Percentage",x="Academic Year",title=title_lab) + 
+      labs(y="Percentage of Learners",x="Academic Year",title=paste("Sustained Positive Destination Outcomes", title_lab, sep = " - ")) + 
       scale_fill_manual(values=blues9[3:7]) +
       guides(fill=guide_legend(title=""))
   })

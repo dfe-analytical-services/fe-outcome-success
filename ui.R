@@ -74,7 +74,7 @@ shinyUI(
            sidebarPanel(id = "sidebar",
             # create input to select provider
             selectInput("provider1",
-                                  "Provider",
+                                  "Search Provider Number (UKPRN) or Provider Name",
                                   c("",unique(as.character(obsm$Provider)))),
             # create output area for plot
             plotOutput("plot"),
