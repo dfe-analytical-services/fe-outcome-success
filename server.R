@@ -111,13 +111,18 @@ shinyServer(function(input,output,session){
     # note the () after dataset - doesn't work without this as dataset() is reactive
     dataset()
     # these options are for the table - self-explanatory
-  }, options = list(searching = FALSE,pageLength=100),rownames=F
+  }, extensions = 'FixedColumns',
+  options = list(searching = FALSE,pageLength=100, dom = 't',
+                    scrollX = TRUE, scrollY = "500px", fixedColumns = list(leftColumns = 2),
+                    autoWidth=FALSE,
+                    columnDefs = list(list(width = '200px', targets = c(0,1)) ) ), rownames=F
   ) %>%   
     # colour coding for each quintile
     formatStyle(columns=as.character(names(dataset())[grepl("Quin",names(dataset()))]), 
                 background=styleEqual(c("top quintile","fourth quintile","third quintile",
                                         "second quintile","bottom quintile"), 
                                       blues9[c(3,4,5,6,7)]))
+  %>% formatRound (grepl("Completions",names(dataset())), digits = 0, mark = ",")
   )
   # download button
   output$downloadData <- downloadHandler(
