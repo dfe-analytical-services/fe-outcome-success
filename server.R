@@ -58,19 +58,19 @@ shinyServer(function(input,output,session){
     text<-summ %>% 
       filter(Provider==input$provider1) %>%
       select(`Completions 15/16`)
-    paste("Completions 15/16:",text)
+    paste("Completions 15/16:", prettyNum(text, big.mark = ","))
   })
   output$text1 <- renderText({
     text<-summ %>% 
       filter(Provider==input$provider1) %>%
       select(`Completions 14/15`)
-    paste("Completions 14/15:",text)
+    paste("Completions 14/15:", prettyNum(text, big.mark = ","))
   })
   output$text2 <- renderText({
     text<-summ %>% 
       filter(Provider==input$provider1) %>%
       select(`Completions 13/14`)
-    paste("Completions 13/14:",text)
+    paste("Completions 13/14:", prettyNum(text, big.mark = ","))
   })
   # subsetting data for table, mostly self-explanatory
   dataset <- reactive({
