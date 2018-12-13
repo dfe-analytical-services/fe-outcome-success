@@ -38,11 +38,11 @@ shinyUI(
              p("Sustained Positive Destination Rate - see main report for all Outcome Based Success Measure definitions and headline results"),
              p("Quintile - identified by comparing the Sustained Positive Destination Rate against the distributions listed in reference thresholds tab:"),
              tags$div(tags$ul(
-               tags$li("Bottom quintile - outcomes are below the 20th percentile;"),
-               tags$li("Second quintile - outcomes are between the 20th and 40th percentile;"),
-               tags$li("Third quintile - outcomes are between the 40th and 60th percentile;"),
+               tags$li("Top quintile - outcomes are above the 80th percentile."),
                tags$li("Fourth quintile - outcomes are between the 60th and 80th percentile;"),
-               tags$li("Top quintile - outcomes are above the 80th percentile."))),
+               tags$li("Third quintile - outcomes are between the 40th and 60th percentile;"),
+               tags$li("Second quintile - outcomes are between the 20th and 40th percentile;") ,
+               tags$li("Bottom quintile - outcomes are below the 20th percentile;"))),
              br(),
              h3("Notes"),
              p("1) The data relate to learners completing all Apprenticeships, all Traineeships, and Adult (19+) FE and Skills learners that completed an ESFA funded aim 
