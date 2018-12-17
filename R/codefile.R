@@ -6,6 +6,7 @@
 # install.packages("reshape2")
 # install.packages("stringr")
 # install.packages("shinyjs")
+# install.packages("plotly")
 
 # load packages
 library(shiny)
@@ -17,6 +18,7 @@ library(reshape2)
 library(stringr)
 library(packrat)
 library(shinyjs)
+library(plotly)
 # read in data - obsm is the data displayed in the tables, summ is the data used to create the graphs on the summary page, 
 # levs is factor levels of learner category, thresholds is thresholds of quintiles
 obsm<-read.csv("Data/obsm.csv",
