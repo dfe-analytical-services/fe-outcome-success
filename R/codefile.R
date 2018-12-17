@@ -1,22 +1,11 @@
-# install.packages("shiny")
-# install.packages("ggplot2")
-# install.packages("DT")
-# install.packages("dplyr")
-# install.packages("markdown")
-# install.packages("reshape2")
-# install.packages("stringr")
-# install.packages("shinyjs")
+packages <- c("shiny", "DT", "dplyr", "markdown", "reshape2", "stringr", "packrat", "shinyjs")
+sapply(packages, function(p){
+  if(!p %in% installed.packages()){
+    install.packages(p)
+  }
+  library(p, character.only = T)
+})
 
-# load packages
-library(shiny)
-library(ggplot2)
-library(DT)
-library(dplyr)
-library(markdown)
-library(reshape2)
-library(stringr)
-library(packrat)
-library(shinyjs)
 # read in data - obsm is the data displayed in the tables, summ is the data used to create the graphs on the summary page, 
 # levs is factor levels of learner category, thresholds is thresholds of quintiles
 obsm<-read.csv("Data/obsm.csv",
