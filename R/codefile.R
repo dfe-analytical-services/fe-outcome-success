@@ -6,7 +6,7 @@
 # install.packages("reshape2")
 # install.packages("stringr")
 # install.packages("shinyjs")
- install.packages("plotly")
+# install.packages("plotly")
 
 # load packages
 library(shiny)
