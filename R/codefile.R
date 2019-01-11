@@ -1,4 +1,5 @@
-packages <- c("shiny", "DT", "dplyr", "markdown", "reshape2", "stringr", "packrat", "shinyjs")
+
+packages <- c("shiny", "DT", "dplyr", "markdown", "reshape2", "stringr", "packrat", "shinyjs", "plotly")
 sapply(packages, function(p){
   if(!p %in% installed.packages()){
     install.packages(p)
