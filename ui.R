@@ -77,7 +77,7 @@ shinyUI(
                                   "Search Provider Number (UKPRN) or Provider Name",
                                   c("",unique(as.character(obsm$Provider)))),
             # create output area for plot
-            plotOutput("plot"),
+            plotlyOutput("plot"),
             br(),
             # create text output
             uiOutput("con"),
