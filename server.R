@@ -54,20 +54,30 @@ shinyServer(function(input,output,session){
       plot_ly(plotdata, x = ~`Bottom Quintile`, y = ~Year, type = 'bar', orientation = 'h', name = 'Bottom quintile',
               marker = list(color = 'rgba(16, 79, 117, 0.6)',
                             line = list(color = 'rgba(16, 79, 117, 1)',
-                                        width = 3) ) ) %>% 
+                                        width = 3) ),
+              hoverinfo = "text", text = ~paste0(`Bottom Quintile`," percent of learners with outcomes in the bottom quintile")) %>% 
         add_trace(x = ~`Second Quintile`, name = 'Second quintile',
                   marker = list(color = 'rgba(64, 114, 145, 0.6)', 
-                                line = list(color = 'rgba(64, 114, 145, 1)', width = 3))) %>%
+                                line = list(color = 'rgba(64, 114, 145, 1)', width = 3)),
+                  hoverinfo = "text", text = ~paste0(`Second Quintile`," percent of learners with outcomes in the second quintile")) %>%
         add_trace(x = ~`Third Quintile`, name = 'Third quintile',
                   marker = list(color = 'rgba(112, 149, 172, 0.6)', 
-                                line = list(color = 'rgba(112, 149, 172, 1)', width = 3))) %>%
+                                line = list(color = 'rgba(112, 149, 172, 1)', width = 3)),
+                  hoverinfo = "text", text = ~paste0(`Third Quintile`," percent of learners with outcomes in the third quintile")) %>%
         add_trace(x = ~`Fourth Quintile`, name = 'Fourth quintile',
                   marker = list(color = 'rgba(159, 185, 200, 0.6)', 
-                                line = list(color = 'rgba(159, 185, 200, 1)', width = 3))) %>%
+                                line = list(color = 'rgba(159, 185, 200, 1)', width = 3)),
+                  hoverinfo = "text", text = ~paste0(`Fourth Quintile`," percent of learners with outcomes in the fourth quintile")) %>%
         add_trace(x = ~`Top Quintile`, name = 'Top quintile',
                   marker = list(color = 'rgba(207, 220, 227, 0.6)', 
-                                line = list(color = 'rgba(207, 220, 227, 1)', width = 3))) %>%
-        layout(barmode = 'stack', xaxis = list(title = "Percentage of students"), yaxis = list(title = "Year of study"))
+                                line = list(color = 'rgba(207, 220, 227, 1)', width = 3)),
+                  hoverinfo = "text", text = ~paste0(`Top Quintile`," percent of learners with outcomes in the top quintile")) %>%
+        layout(barmode = 'stack', 
+               xaxis = list(title = "Percentage of students"), 
+               yaxis = list(title = "Year of study"),
+               legend = list(orientation = 'h',
+                             x = 0.5, xanchor = "center",
+                             y = 1.2, yanchor = "center"))
     }
     
   })
@@ -110,7 +120,8 @@ shinyServer(function(input,output,session){
              `Benefit learner` = ifelse(grepl("BL", variable), "Benefit Learner", "All learners excl. benefit learners")) %>% 
       select(-variable) %>% 
       select(Provider, `Learner Category`, Measure, `Academic year`, `Benefit learner`, Value = value) %>% 
-      dcast(Provider + `Learner Category` + `Academic year` + `Benefit learner` ~ Measure, value.var = "Value")
+      dcast(Provider + `Learner Category` + `Academic year` + `Benefit learner` ~ Measure, value.var = "Value") %>% 
+      arrange(factor(`Learner Category`,levels=levs[,1]))
     
     if (input$provider1 != "") {
       outputdata <- data %>% filter(Provider == input$provider1)
