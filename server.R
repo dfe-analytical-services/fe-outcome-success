@@ -139,7 +139,7 @@ shinyServer(function(input,output,session){
     dataset()
     # these options are for the table - self-explanatory
   }, extensions = 'FixedColumns',
-  options = list(searching = FALSE,pageLength=100, dom = 't',
+  options = list(searching = FALSE,pageLength=999, dom = 't',
                     scrollX = TRUE, scrollY = "500px", fixedColumns = list(leftColumns = 2),
                     autoWidth=FALSE,
                     columnDefs = list(list(width = '200px', targets = c(0,1)) ) ), rownames=F
